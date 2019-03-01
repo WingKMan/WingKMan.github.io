@@ -8,75 +8,43 @@ const upperCase = ['A','B','C','D','E','F','G',
 
 const MAX = 26;
 
-function encode(){
+function coding(condition){
     var input = document.getElementById('cipher_msg').value;
     var num = parseInt(document.getElementById('cipher_num').value);
-    
-    var output = "";
-    for(i=0;i<input.length;i++){
-       
-        var character = input.charCodeAt(i);
-        if(character > 96 && character < 123){ //lower case: a-z
-            var pos = character - 97 + num;
-            if(pos > MAX){
-                pos = pos % MAX;
-                output += lowerCase[pos];
-            }
-            else{
-                output+=lowerCase[pos];
-            }
-        }
-
-        else if(character > 64 && character < 91){ //upper case: A-Z
-            var pos = character - 65 + num;
-            if(pos > MAX){
-                pos = pos % MAX;
-                output += upperCase[pos];
-            }
-            else{
-                output += upperCase[pos];
-            }
-        }
-
-        else {
-            output+=input[i];
-        }
+    if(condition==1){
+        num = num - num - num;
     }
-
-    document.getElementById("cipher_msg_output").innerHTML = output;
-}
-
-function decode(){
-    var input = document.getElementById('cipher_msg').value;
-    var num = parseInt(document.getElementById('cipher_num').value);
-    
     var output = "";
     for(i=0;i<input.length;i++){
        
         var character = input.charCodeAt(i);
 
-        if(character > 64 && character < 91){ //upper case: A-Z
-            var pos = (character - 65 - num);
-            if(pos < 0){
-                pos = 26 - (pos * -1);
-                pos = pos % MAX;
-                console.log(pos);
-                output += upperCase[pos];
+        if(character >= 65 && character <= 90){ //upper case: A-Z
+            var pos = (character - 65 + num);
+            if(pos < 0 || pos >= 26){
+                pos %= MAX;
+                if(pos < 0){
+                    pos = MAX - (pos - (pos*2));
+                }
+                output+=upperCase[pos];
             }
-            else{
-                output += upperCase[pos];
+            else {
+                output+=upperCase[pos%MAX];
             }
         }
 
-        else if(character > 96 && character < 123){ //lower case: a-z
-            var pos = (character - 97 - num);
-            if(pos < 0){
-                pos = 26 - (pos * -1);
-                pos = pos % MAX;
-                output += lowerCase[pos];
-            }
-            else{
+        else if(character >= 97 && character <= 122){ //lower case: a-z
+            var pos = (character - 97 + num);
+           
+            if(pos < 0  || pos > 25){
+                pos %= MAX;
+                if(pos<0){
+                    pos = MAX - (pos-(pos*2));
+                }
                 output+=lowerCase[pos];
+            }
+            else {
+                output+=lowerCase[pos%MAX];
             }
         }
 
@@ -86,7 +54,7 @@ function decode(){
             output+=input[i];
         }
     }
-
     document.getElementById("cipher_msg_output").innerHTML = output;
+
 }
 
