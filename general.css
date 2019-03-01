@@ -1,0 +1,37 @@
+
+div{
+    margin:  10px auto;
+    width: 75%; 
+    
+}
+
+header{
+    float: left;
+   
+}
+
+textarea{
+    height: 150px;
+}
+
+.web-icon{
+    padding-left: 5%;
+}
+
+#nav-bar-div {
+    text-align: right;
+    padding-right: 5%;
+}
+
+
+.layout-div {
+    border:3px;
+    border-style: dashed;
+    border-color: black;
+    padding-top: 2%;
+    padding-bottom: 2%;
+}
+
+#cipher_form_button{
+    text-align: center;
+}

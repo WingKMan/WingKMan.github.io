@@ -1,0 +1,51 @@
+
+<!DOCTYPE html>
+<html>
+    <meta charset="utf-8">
+    <meta lang="en">
+
+    <head>
+        <title>Test</title>
+        <link rel="stylesheet" type="text/css" href=general.css>
+        <link href="https://unpkg.com/nes.css@latest/css/nes.min.css" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
+        <script src="main.js" type="text/javascript"></script>
+        
+    </head>
+    <div id="nav-bar-div" class="layout-div">
+        <header class="web-icon"><i class="nes-icon trophy is-large"></i></header>
+        <nav>
+            <a class="nes-btn" href=index.html>Home</a>
+            <a class="nes-btn" href=html/review.html>Review</a>
+            <!--<a class="nes-btn" href=html/code_ground.html>Code Ground</a>
+            <a class="nes-btn is-disabled" href=html/forum.html>Forum</a> -->
+            <a class="nes-btn" href=html/contact.html> Contact</a>
+        </nav>
+    </div>
+    <div id="body-div" class="layout-div">
+        <div id="cipher_form">
+            <div>
+                <label for="prompt_input_msg">Enter the Message</label>
+                <textarea id="cipher_msg" type="text" id="inline_field" class="nes-input is-success" placeholder="Hello World!"></textarea>
+            </div>
+            <br>
+
+            <div >
+                <label for="prompt_input_num">Enter a Number</label>
+                <input id="cipher_num" type="text" id="warning_field" class="nes-input is-warning" placeholder="Positive value">
+            </div>
+            <br>
+
+            <div>
+                <label for="output_msg">Enter the Message</label>
+                <textarea id="cipher_msg_output" type="text" id="inline_field" class="nes-input is-disabled" placeholder="Output" disabled></textarea>
+            </div>
+
+            <br>
+            <div id="cipher_form_button">
+                <button id="cipher_encode" type="button" class="nes-btn is-primary" onclick="encode()">Encode</button>
+                <button id="cipher_decode" type="button" class="nes-btn is-primary" onclick="decode()">Decode</button>
+            </div> 
+        </div>
+    </div>
+</html>
